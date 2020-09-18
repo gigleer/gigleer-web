@@ -1,0 +1,16 @@
+@font-face {
+    font-family: "GlacialIndifferenceRegular";
+    src: url("https://fontlibrary.org/face/glacial-indifference");   
+    /* src: font-url('calibre/regular/Calibre-Regular.otf')  format('opentype'), */
+    font-weight: normal;
+    font-style: normal;
+  } 
+
+  /* href="https://fontlibrary.org/face/glacial-indifference" type="text/css */
+
+  /* NOT WORKING */
+/* 
+  @font-face {
+    font-family: "Dank Mono";
+    src: url("DankMono-Regular.otf");
+  } */

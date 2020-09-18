@@ -7453,6 +7453,14 @@ gatsby-plugin-typescript@^2.1.20, gatsby-plugin-typescript@^2.4.18:
     "@babel/runtime" "^7.10.3"
     babel-plugin-remove-graphql-queries "^2.9.17"
 
+gatsby-plugin-web-font-loader@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-web-font-loader/-/gatsby-plugin-web-font-loader-1.0.4.tgz#c50bdb0c1980110b3fd213a5be70feb2459514c3"
+  integrity sha512-3c39bX9CcsYJQFhhmTyjuMJSqpld2rX+HsTOxP9k1PKFR4Rvo3lpzBW4d1tVpmUesR8BNL6u9eHT7/XksS1iog==
+  dependencies:
+    babel-runtime "^6.26.0"
+    webfontloader "^1.6.28"
+
 gatsby-react-router-scroll@^3.0.12:
   version "3.0.12"
   resolved "https://registry.yarnpkg.com/gatsby-react-router-scroll/-/gatsby-react-router-scroll-3.0.12.tgz#1c6a7c3fd2d54ec618f42a6e793ff8293070b6bc"
@@ -13878,6 +13886,14 @@ react-lifecycles-compat@^3.0.0, react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-mobile-store-button@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/react-mobile-store-button/-/react-mobile-store-button-0.0.6.tgz#81ff197285169e132f000bb35e92b2f25440bc8b"
+  integrity sha512-TJuQXXcyVpf4XPvql0X2yqSrnsM4KBkwRNzn74hbe+ykfAS31dNZa9DxUjU9aey+X+MXs/q3ewRw2O5XSJgwHg==
+  dependencies:
+    prop-types "^15.6.0"
+    react "^16.2.0"
+
 react-modal@^3.8.1:
   version "3.11.2"
   resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-3.11.2.tgz#bad911976d4add31aa30dba8a41d11e21c4ac8a4"
@@ -14119,7 +14135,7 @@ react-window@^1.8.5:
     "@babel/runtime" "^7.0.0"
     memoize-one ">=3.1.1 <6"
 
-react@^16.8.0, react@^16.8.4:
+react@^16.2.0, react@^16.8.0, react@^16.8.4:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
@@ -17622,6 +17638,11 @@ web-namespaces@^1.0.0, web-namespaces@^1.1.2:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/web-namespaces/-/web-namespaces-1.1.4.tgz#bc98a3de60dadd7faefc403d1076d529f5e030ec"
   integrity sha512-wYxSGajtmoP4WxfejAPIr4l0fVh+jeMXZb08wNc0tMg6xsfZXj3cECqIK0G7ZAqUq0PP8WlMDtaOGVBTAWztNw==
+
+webfontloader@^1.6.28:
+  version "1.6.28"
+  resolved "https://registry.yarnpkg.com/webfontloader/-/webfontloader-1.6.28.tgz#db786129253cb6e8eae54c2fb05f870af6675bae"
+  integrity sha1-23hhKSU8tujq5UwvsF+HCvZnW64=
 
 webpack-assets-manifest@^3.1.1:
   version "3.1.1"
