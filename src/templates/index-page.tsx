@@ -17,10 +17,11 @@ type IndexPageTemplateProps = RecursiveNonNullable<
 >["markdownRemark"]["frontmatter"]
 
 type inputProps  = {
-    bgColor: "blue" | "red" | "green";
+    bgColor: string;
     textPosition: string;
     title: string;
     subheading: string;
+    theme:Theme
     // companyId: string;
     // pool: object[];
     // setPool: (list: object[]) => void;
@@ -31,26 +32,47 @@ type inputProps  = {
     /* background-position: "top left";
     background-attachment: "fixed"; */
 
+type Theme = {
+    bgColor: string
+    color: string
+}
+
+// ${(p: Theme) => p.bgColor === "blue" ? themeBlue : "white"}
 const Background = styled.div`
 /* Make background color as a prop */
-    /* background-color: #002A5C; */
-    ${(p: {bgColor: string}) => p.bgColor === "purple" ? themePurple : "white"}
-    
-    height: 100vh;
+    background-color: #002A5C;
+    height: 90vh;
+    display: flex;
+    line-height: 1;
+    /* justify-content: center;  */
+    flex-direction: column;
+    /* margin-bottom: 10vh; */
+`
+const GreenBackground = styled.div`
+/* Make background color as a prop */
+    background-color: #F1FDF7;
+    height: 90vh;
     display: flex;
     line-height: 1;
     /* justify-content: center;  */
     flex-direction: column;
 `
 
-const themePurple = css`background-color: purple; color: white;`;
 
+const themeBlue = css`background-color: #002A5C; color: white;`;
+
+/*${(p: Theme) => p.color === "blue" ? themeBlue : "white"}*/
 const BigTitle = styled.h1`
-    ${(p: {bgColor: string}) => p.bgColor === "purple" ? themePurple : "white"}
+    color: white;
     max-width: 70%;
     margin-top: 20vh;
     margin-left: 10vh;
 `
+
+const MyNewTitle = styled(BigTitle)`
+    color: black;
+`
+
 const SubTitle = styled.p`
     max-width: 60%;
 `
@@ -59,64 +81,99 @@ const TwoColumn = styled.div`
     display:flex;
     flex-direction: row;
 `
-
 const ImageContainer = styled.div`
     margin-top: 20vh;
     background-color: #002A5C;
-    border-radius:10px;
+    border-radius:20%;
 `
 
-const BigFocalDiv:React.FC<inputProps> = props => (
-    <Background bgColor={''}>
-        <TwoColumn>
-            <div>
-                <BigTitle className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen">{props.title}</BigTitle>
-                <SubTitle className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen" >{props?.subheading}</SubTitle>
-                <div style={{display:"flex", flexDirection:"row", marginTop:"10vh", marginLeft:"10vh"}}>
-                    <div style={{marginTop:"18px", }}>
+const BigFocalDiv:React.FC<inputProps> = props => {
+    const {theme} = props
+    return(
+        <Background {...theme}>
+            <TwoColumn>
+                <div>
+                    <BigTitle {...theme} className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen">{props.title}</BigTitle>
+                    <SubTitle className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen" >{props?.subheading}</SubTitle>
+                    <div style={{display:"flex", flexDirection:"row", marginTop:"10vh", marginLeft:"10vh"}}>
+                        <div style={{marginTop:"18px", }}>
+                            <MobileStoreButton
+                                store="ios"
+                                height={65}
+                                url={"www.test.se"}
+                                linkProps={{ title: 'iOS Store Button' }}
+                            />
+                        </div>
+
                         <MobileStoreButton
-                            store="ios"
-                            height={"65px"}
+                            store="android"
+                            height={100}
                             url={"www.test.se"}
-                            linkProps={{ title: 'iOS Store Button' }}
+                            linkProps={{ title: 'Play Store Button' }}
                         />
                     </div>
-
-                    <MobileStoreButton
-                        store="android"
-                        height={"100px"}
-                        url={"www.test.se"}
-                        linkProps={{ title: 'Play Store Button' }}
-                    />
                 </div>
-            </div>
-            <ImageContainer>
-                <Img fixed={props?.image.childImageSharp.fixed} />
-            </ImageContainer>
-        </TwoColumn>
-    </Background>
-  )
+
+                {/* <ImageContainer style={{ position: "relative"; right: "10vh"; bottom: "-10vh";}}>
+                    <Img fixed={props?.image?.childImageSharp?.fixed} />
+                </ImageContainer> */}
+            </TwoColumn>
+        </Background>
+    )
+}
 
 
 export const IndexPageTemplate = ({
     image,
     title,
     heading,
+    bgColor,
     // subheading,
-    mainpitch,
+    howTo,
     description,
     intro
 }: IndexPageTemplateProps) => (
     <div>
-        <BigFocalDiv title={title} image={image} />
+        <BigFocalDiv title={title} bgColor={bgColor} image={image} />
+        
+        <GreenBackground >
+            <div className="container" style={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                    flexDirection: "column"}}>
+                <Features gridItems={intro.blurbs} />
+            </div>
+        </GreenBackground>
 
-        <section className="section section--gradient">
+        <div style={{ display: "flex"}}>
+            <TwoColumn >
+                <ImageContainer>
+                    <Img fixed={image?.childImageSharp?.fixed} />
+                </ImageContainer>
+
+                <div>
+                    <h1 className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen">
+                        {howTo.title}
+                    </h1>
+
+                    {howTo.steps.map((step: object, index: number) => {
+                        return(
+                            <div key={index}>
+                                <h2 className="has-text-weight-bold" >{step.title}</h2>
+                                <p>{step.detail}</p>
+                            </div>
+                        )
+                    })}
+                </div>
+            </TwoColumn>
+        </div>
+        {/*<section className="section section--gradient">
             <div className="container">
                 <div className="section">
                     <div className="columns">
                         <div className="column is-10 is-offset-1">
                             <div className="content">
-                                <div className="content">
+                                 <div className="content">
                                     <div className="tile">
                                         <h1 className="title">
                                             {mainpitch.title}
@@ -133,10 +190,12 @@ export const IndexPageTemplate = ({
                                         <h3 className="has-text-weight-semibold is-size-2">
                                             {heading}
                                         </h3>
+                                        
                                         <p>{description}</p>
                                     </div>
-                                </div>
-                                <Features gridItems={intro.blurbs} />
+                                </div> 
+                                
+                                
                                 <div className="columns">
                                     <div className="column is-12 has-text-centered">
                                         <Link className="btn" to="/products">
@@ -154,13 +213,13 @@ export const IndexPageTemplate = ({
                                             Read more
                                         </Link>
                                     </div>
-                                </div>
+                                </div> 
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </section>*/}
     </div>
 )
 
@@ -168,8 +227,11 @@ IndexPageTemplate.propTypes = {
     image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     title: PropTypes.string,
     heading: PropTypes.string,
+    bgColor:PropTypes.string,
+    howTo: PropTypes.shape({
+        steps: PropTypes.array
+    }),
     // subheading: PropTypes.string,
-    mainpitch: PropTypes.object,
     description: PropTypes.string,
     intro: PropTypes.shape({
         blurbs: PropTypes.array
@@ -188,8 +250,9 @@ const IndexPage = ({
                 image={post?.frontmatter?.image}
                 title={post?.frontmatter?.title}
                 heading={post?.frontmatter?.heading}
+                bgColor={post?.frontmatter?.bgColor}
                 // subheading={post?.frontmatter?.subheading}
-                mainpitch={post?.frontmatter?.mainpitch}
+                howTo={post?.frontmatter?.howTo}
                 description={post?.frontmatter?.description}
                 intro={post?.frontmatter?.intro}
             />
@@ -215,10 +278,14 @@ export const pageQuery = graphql`
                     }
                 }
                 heading
+                bgColor
 
-                mainpitch {
+                howTo {
                     title
-                    description
+                    steps{
+                        title
+                        detail
+                    }
                 }
                 description
                 intro {
@@ -230,6 +297,7 @@ export const pageQuery = graphql`
                                 }
                             }
                         }
+                        title
                         text
                     }
                     heading
