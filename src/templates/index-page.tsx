@@ -37,10 +37,7 @@ type Theme = {
     color: string
 }
 
-// ${(p: Theme) => p.bgColor === "blue" ? themeBlue : "white"}
 const Background = styled.div`
-/* Make background color as a prop */
-    background-color: #002A5C;
     height: 90vh;
     display: flex;
     line-height: 1;
@@ -48,33 +45,41 @@ const Background = styled.div`
     flex-direction: column;
     /* margin-bottom: 10vh; */
 `
-const GreenBackground = styled.div`
+// ${(p: Theme) => p.bgColor === "blue" ? themeBlue : "white"}
+const BlueBackground = styled(Background)`
 /* Make background color as a prop */
-    background-color: #F1FDF7;
-    height: 90vh;
-    display: flex;
-    line-height: 1;
-    /* justify-content: center;  */
-    flex-direction: column;
+    background-color: #002A5C; 
 `
 
+const GreenBackground = styled(Background)`
+/* Make background color as a prop */
+    background-color: #F1FDF7;
+`
 
 const themeBlue = css`background-color: #002A5C; color: white;`;
 
 /*${(p: Theme) => p.color === "blue" ? themeBlue : "white"}*/
 const BigTitle = styled.h1`
+    color: #002A5C;
+    font-size: 3em;
+    font-weight: bold;
+`
+
+const BigWhiteTitle = styled(BigTitle)`
     color: white;
-    max-width: 70%;
-    margin-top: 20vh;
-    margin-left: 10vh;
 `
 
-const MyNewTitle = styled(BigTitle)`
-    color: black;
+const SmallTitle = styled.h3`
+    color: #002A5C;
+    font-size: 1.5em;
+    font-weight: bold;
+    /* max-width: 60%; */
 `
 
-const SubTitle = styled.p`
-    max-width: 60%;
+const Description = styled.h3`
+    color: #002A5C;
+    font-weight: 300;
+    /* max-width: 60%; */
 `
 
 const TwoColumn = styled.div`
@@ -82,19 +87,23 @@ const TwoColumn = styled.div`
     flex-direction: row;
 `
 const ImageContainer = styled.div`
-    margin-top: 20vh;
-    background-color: #002A5C;
     border-radius:20%;
+    background-color: #002A5C;
+    
 `
-
+const RedButton = styled.button`
+    background-color: #EE5A5A;
+    color:white;
+`
 const BigFocalDiv:React.FC<inputProps> = props => {
     const {theme} = props
     return(
-        <Background {...theme}>
+        <BlueBackground {...theme}>
             <TwoColumn>
                 <div>
-                    <BigTitle {...theme} className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen">{props.title}</BigTitle>
-                    <SubTitle className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen" >{props?.subheading}</SubTitle>
+                    <BigWhiteTitle style={{maxWidth: "65%", marginTop: "20vh", marginLeft: "10vh"}} >{props.title}</BigWhiteTitle>
+                    <SmallTitle >{props?.subheading}</SmallTitle>
+
                     <div style={{display:"flex", flexDirection:"row", marginTop:"10vh", marginLeft:"10vh"}}>
                         <div style={{marginTop:"18px", }}>
                             <MobileStoreButton
@@ -113,24 +122,21 @@ const BigFocalDiv:React.FC<inputProps> = props => {
                         />
                     </div>
                 </div>
-
-                {/* <ImageContainer style={{ position: "relative"; right: "10vh"; bottom: "-10vh";}}>
+                    {/* THROWS TYPEERROR IN THE CMS */}
+                    {/* style={{ margin-top: "20vh", position: "relative", right: "10vh", bottom: "-10vh"}} */}
+                <ImageContainer style={{marginTop: "20vh", position: "relative", right: "10vh", bottom: "-10vh"}}>
                     <Img fixed={props?.image?.childImageSharp?.fixed} />
-                </ImageContainer> */}
+                </ImageContainer>
             </TwoColumn>
-        </Background>
+        </BlueBackground>
     )
 }
-
 
 export const IndexPageTemplate = ({
     image,
     title,
-    heading,
     bgColor,
-    // subheading,
     howTo,
-    description,
     intro
 }: IndexPageTemplateProps) => (
     <div>
@@ -145,81 +151,34 @@ export const IndexPageTemplate = ({
             </div>
         </GreenBackground>
 
-        <div style={{ display: "flex"}}>
-            <TwoColumn >
-                <ImageContainer>
+        <Background style={{padding:"5vh"}}>
+            <TwoColumn style={{width:"100%", justifyContent:"center"}}>
+                {/* THROWS TYPEERROR IN THE CMS */}
+                <ImageContainer style={{marginRight:"5vh"}}>
                     <Img fixed={image?.childImageSharp?.fixed} />
                 </ImageContainer>
 
-                <div>
-                    <h1 className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen">
+                <div style={{marginTop: "3vh"}}> 
+                    {/* THESE THROWS TYPEERROR IN THE CMS WORKS IF COMMENTED*/}
+                    <BigTitle>
                         {howTo.title}
-                    </h1>
+                    </BigTitle>
 
                     {howTo.steps.map((step: object, index: number) => {
                         return(
-                            <div key={index}>
-                                <h2 className="has-text-weight-bold" >{step.title}</h2>
-                                <p>{step.detail}</p>
+                            <div style={{marginTop:"2vh", marginBottom:"2vh", lineHeight:"2"}} key={index}>
+                                <SmallTitle  >{step.title}</SmallTitle>
+                                <Description>{step.detail}</Description>
                             </div>
                         )
                     })}
-                </div>
+
+                    <RedButton className="button">
+                        Get started
+                    </RedButton>
+                </div> 
             </TwoColumn>
-        </div>
-        {/*<section className="section section--gradient">
-            <div className="container">
-                <div className="section">
-                    <div className="columns">
-                        <div className="column is-10 is-offset-1">
-                            <div className="content">
-                                 <div className="content">
-                                    <div className="tile">
-                                        <h1 className="title">
-                                            {mainpitch.title}
-                                        </h1>
-                                    </div>
-                                    <div className="tile">
-                                        <h3 className="subtitle">
-                                            {mainpitch.description}
-                                        </h3>
-                                    </div>
-                                </div>
-                                <div className="columns">
-                                    <div className="column is-12">
-                                        <h3 className="has-text-weight-semibold is-size-2">
-                                            {heading}
-                                        </h3>
-                                        
-                                        <p>{description}</p>
-                                    </div>
-                                </div> 
-                                
-                                
-                                <div className="columns">
-                                    <div className="column is-12 has-text-centered">
-                                        <Link className="btn" to="/products">
-                                            See all products
-                                        </Link>
-                                    </div>
-                                </div>
-                                <div className="column is-12">
-                                    <h3 className="has-text-weight-semibold is-size-2">
-                                        Latest stories
-                                    </h3>
-                                    <BlogRoll />
-                                    <div className="column is-12 has-text-centered">
-                                        <Link className="btn" to="/blog">
-                                            Read more
-                                        </Link>
-                                    </div>
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>*/}
+        </Background>
     </div>
 )
 

@@ -1,6 +1,22 @@
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage"
 import PropTypes from "prop-types"
 import React from "react"
+import styled, {css} from "styled-components"
+
+const SmallTitle = styled.h3`
+    color: #002A5C;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin:1em;
+    /* max-width: 60%; */
+`
+
+const Description = styled.h3`
+    color: #002A5C;
+    font-weight: 300;
+    text-align:center
+    /* max-width: 60%; */
+`
 
 const FeatureGrid = ({ gridItems }) => {
     return(
@@ -8,7 +24,7 @@ const FeatureGrid = ({ gridItems }) => {
         {gridItems.map(item => {
         return(
             <div key={item.text} className="column is-4">
-                <section className="section">
+                <section className="section" >
                     <div className="has-text-centered">
                         <div
                             style={{
@@ -19,8 +35,8 @@ const FeatureGrid = ({ gridItems }) => {
                             <PreviewCompatibleImage imageInfo={item} />
                         </div>
                     </div>
-                    <h3 className="has-text-centered">{item.title}</h3>
-                    <p>{item.text}</p>
+                    <SmallTitle className="has-text-centered">{item.title}</SmallTitle>
+                    <Description>{item.text}</Description>
                 </section>
             </div>
         )})}

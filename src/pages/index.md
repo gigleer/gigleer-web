@@ -1,10 +1,10 @@
 ---
 templateKey: index-page
-heading: A complete tool. An easier way to find a job and you get paid the same day
-subheading: subtest
 title: A complete tool. An easier way to find a job and you get paid the same day
 image: /img/phone.png
 bgColor: blue
+heading: A complete tool. An easier way to find a job and you get paid the same day
+subheading: subtest
 howTo:
   title: "Let's start with a gig! "
   steps:
@@ -20,14 +20,14 @@ description: Kaldi is the ultimate spot for coffee lovers who want to learn
   knowledge to anyone.
 intro:
   blurbs:
-    - image: /img/coffee.png
+    - image: /img/idea_red.png
       title: Skills
       text: Skills database with ratings and new skills you want to learn. Matched to
         the learning platform
-    - image: /img/coffee-gear.png
+    - image: /img/data_red.png
       title: Ratings
       text: Rating of employers, gigs, gigleers and skills
-    - image: /img/tutorials.png
+    - image: /img/money_red.png
       title: Payment
       text: "Direct payment after a gig. Later loans, savings and payments. "
   heading: What we offer
