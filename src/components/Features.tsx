@@ -1,7 +1,7 @@
 import PreviewCompatibleImage from "../components/PreviewCompatibleImage"
 import PropTypes from "prop-types"
 import React from "react"
-import styled, {css} from "styled-components"
+import styled from "styled-components"
 
 const SmallTitle = styled.h3`
     color: #002A5C;
@@ -10,11 +10,10 @@ const SmallTitle = styled.h3`
     margin:1em;
     /* max-width: 60%; */
 `
-
 const Description = styled.h3`
     color: #002A5C;
     font-weight: 300;
-    text-align:center
+    text-align: center;
     /* max-width: 60%; */
 `
 
@@ -44,13 +43,11 @@ const FeatureGrid = ({ gridItems }) => {
 )}
 
 FeatureGrid.propTypes = {
-    gridItems: PropTypes.arrayOf(
-        PropTypes.shape({
-            image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-            title: PropTypes.string,
-            text: PropTypes.string
-        })
-    )
+    gridItems: PropTypes.shape({
+        image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+        title: PropTypes.string,
+        text: PropTypes.string
+    })
 }
 
 export default FeatureGrid

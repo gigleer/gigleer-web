@@ -39,7 +39,7 @@ const Navbar = class extends React.Component {
                 className="navbar is-transparent"
                 role="navigation"
                 aria-label="main-navigation"
-                style={{position:"fixed", width:"100%", backgroundColor: "#002A5C"}}
+                style={{position:"fixed", width:"100%", backgroundColor: "#002A5C", marginBottom: "10vh"}}
             >
                 <div className="container">
                     <div className="navbar-brand">
@@ -51,22 +51,24 @@ const Navbar = class extends React.Component {
                             />
                         </Link>
                         {/* Hamburger menu */}
-                        {/* <div
+                        <div
                             className={`navbar-burger burger ${this.state.navBarActiveClass}`}
                             data-target="navMenu"
                             onClick={() => this.toggleHamburger()}
+                            style={{color: "#f1fdf7"}}
                         >
                             <span />
                             <span />
                             <span />
-                        </div> */}
+                        </div>
                     </div>
                     <div
                         id="navMenu"
                         className={`navbar-menu ${this.state.navBarActiveClass}`}
+                        style={{backgroundColor: "#002A5C"}}
                     >
-                        {/* <div className="navbar-start has-text-centered" >
-                            <Link className="navbar-item" style={{color:"white"}} to="/about">
+                        <div className="navbar-start has-text-centered" >
+                            {/* <Link className="navbar-item" style={{color:"white"}} to="/about">
                                 About
                             </Link>
                             <Link className="navbar-item" style={{color:"white"}} to="/products">
@@ -74,19 +76,22 @@ const Navbar = class extends React.Component {
                             </Link>
                             <Link className="navbar-item" style={{color:"white"}} to="/blog">
                                 Blog
+                            </Link> */}
+                            <Link className="navbar-item contact-link" to="/">
+                                Home
                             </Link>
-                            <Link className="navbar-item" style={{color:"white"}} to="/contact">
+                            <Link className="navbar-item contact-link" to="/contact">
                                 Contact
                             </Link>
-                            <Link
+                            {/* <Link
                                 style={{color:"white"}}
                                 className="navbar-item"
                                 to="/contact/examples"
                             >
                                 Form Examples
-                            </Link>
+                            </Link> */}
                         </div> 
-                        <div className="navbar-end has-text-centered">
+                        {/* <div className="navbar-end has-text-centered">
                             <a
                                 className="navbar-item"
                                 href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
@@ -97,7 +102,7 @@ const Navbar = class extends React.Component {
                                     <img src={github} alt="Github" />
                                 </span>
                             </a>
-                        </div>*/}
+                        </div> */}
                     </div>
                 </div>
             </nav>

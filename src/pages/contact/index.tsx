@@ -1,6 +1,13 @@
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
 import React from 'react'
+import styled from "styled-components"
+
+const BlueButton = styled.button`
+    background-color: #002A5C;
+    color:white;
+    border-radius: .5em;
+`
 
 function encode(data) {
     return Object.keys(data)
@@ -38,10 +45,11 @@ export default class Index extends React.Component {
     render() {
         return (
             <Layout>
-                <section className="section">
-                    <div className="container">
-                        <div className="content">
-                            <h1>Contact</h1>
+                <section className="section" style={{height:"70vh", paddingTop:"10vh"}}>
+                    <div className="container" style={{backgroundColor:"#EE5A5A", borderRadius:"2em", padding:"2vh 1vh 1vh 1vh"}}>
+                        <h1 style={{fontSize:"1.5em", color: "#002A5C", fontWeight:"bold", margin:"0 0 1em 1em"}}>Have a question?</h1>
+                        <div className="content" style={{padding:"5vh", backgroundColor:"#FBE3D8", borderRadius:"2em"}}>
+                            <h1 style={{fontSize:"1.5em", marginTop:0, color: "#002A5C", fontWeight:"bold"}}>Contact us here</h1>
                             <form
                                 name="contact"
                                 method="post"
@@ -112,13 +120,14 @@ export default class Index extends React.Component {
                                         />
                                     </div>
                                 </div>
-                                <div className="field">
-                                    <button
-                                        className="button is-link"
+                                <div className="field" style={{display:"flex", flexDirection:"row-reverse"}}>
+                                    <BlueButton
+                                    // is-link
+                                        className="button "
                                         type="submit"
                                     >
                                         Send
-                                    </button>
+                                    </BlueButton>
                                 </div>
                             </form>
                         </div>
