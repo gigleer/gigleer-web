@@ -5,7 +5,7 @@ import styled from "styled-components"
 
 const BlueButton = styled.button`
     background-color: #002A5C;
-    color:white;
+    color: white;
     border-radius: .5em;
 `
 
@@ -23,11 +23,11 @@ export default class Index extends React.Component {
         this.state = { isValidated: false }
     }
 
-    handleChange = e => {
+    handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    handleSubmit = e => {
+    handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const form = e.target
         fetch("/", {

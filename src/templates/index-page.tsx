@@ -37,7 +37,8 @@ type Theme = {
 }
 
 const Background = styled.div`
-    height: 90vh;
+    height: 100%;
+    min-height: 90vh;
     display: flex;
     line-height: 1;
     flex-direction: column;
@@ -60,6 +61,10 @@ const BigTitle = styled.h1`
     color: #002A5C;
     font-size: 3em;
     font-weight: bold;
+
+    @media(max-width: 768px) {
+        font-size: 2em;
+    }
 `
 
 const BigWhiteTitle = styled(BigTitle)`
@@ -70,6 +75,10 @@ const SmallTitle = styled.h3`
     color: #002A5C;
     font-size: 1.5em;
     font-weight: bold;
+    
+    @media(max-width: 768px) {
+        font-size: 1em;
+    }
 `
 const SmallLightTitle = styled(SmallTitle)`
     color: #f1fdf7;
@@ -85,9 +94,12 @@ const TwoColumn = styled.div`
     flex-direction: row;
 `
 const ImageContainer = styled.div`
-    border-radius:20%;
-    background-color: #002A5C;
-    
+    min-width: 500px;
+    display: block;
+    @media(max-width: 768px) {
+        min-width: 250px;
+        display: none;
+    }
 `
 const RedButton = styled.button`
     background-color: #EE5A5A;
@@ -101,23 +113,38 @@ const LightButton = styled.button`
     border-radius: .5em;
 `
 
+const OnlyDesktop = styled.div`
+    display: block;
+    @media(max-width: 768px) {
+        display: none;
+    }
+`
+
+const LeftColumn = styled.div`
+    max-width: 65%;
+    margin-top: 10vh;
+    @media(max-width: 768px) {
+        max-width: 95%;
+    }
+`
+
 const BigFocalDiv:React.FC<inputProps> = props => {
     const {theme} = props
     return(
         <BlueBackground {...theme}>
-            <TwoColumn>
-                <div>
-                    <BigWhiteTitle style={{maxWidth: "65%", marginTop: "20vh", marginLeft: "10vh"}} >{props.title}</BigWhiteTitle>
+            <div style={{display:"flex", flexDirection:"row", flexWrap: "wrap", justifyContent:"center"}}>
+            {/* className="rows"   className="col-sm" */}
+                <LeftColumn className="column is-8" >
+                {/* maxWidth: "65%",  style={{  }} marginLeft: "10vh" */}
+                    <BigWhiteTitle >{props.title}</BigWhiteTitle>
                     {/* display:"flex", flexDirection:"column", */}
-                    <div style={{ marginTop:"10vh", marginLeft:"10vh"}}>
+                    <div style={{ marginTop:"10vh"}}>
                         <SmallLightTitle>We will soon launch our service</SmallLightTitle>
                         <Description style={{margin: "1em 0 1em 0", color: "white"}}>Sign up for our latest news</Description>
                         
                         <Link to="/contact" title="Sign up" style={{marginBottom:"2em"}}>
                             <LightButton className="button">Sign up</LightButton>
                         </Link>
-
-                        
 
                         {/* <div style={{marginTop:"18px", }}>
                             <MobileStoreButton
@@ -134,48 +161,51 @@ const BigFocalDiv:React.FC<inputProps> = props => {
                             url={"www.test.se"}
                             linkProps={{ title: 'Play Store Button' }}
                         /> */}
+                        {/*  */}
                     </div>
-                </div>
+                    <div style={{marginTop: "5vh", marginBottom:"5vh"}} className="social" >
+                        <h2 style={{fontSize:"3", fontWeight:"bold", color: "white", marginBottom:"2vh"}}>Follow us </h2>
+                        <a title="facebook" href="https://facebook.com">
+                            <img
+                                src={facebook}
+                                alt="Facebook"
+                                style={{ width: "2em", height: "2em" }}
+                            />
+                        </a>
+                        <a title="linkedin" href="https://linkedin.com">
+                            <img
+                                className="fas fa-lg"
+                                src={linkedin}
+                                alt="LinkedIn"
+                                style={{ width: "2em", height: "2em" }}
+                            />
+                        </a>
+                        <a
+                            title="instagram"
+                            href="https://instagram.com"
+                        >
+                            <img
+                                src={instagram}
+                                alt="Instagram"
+                                style={{ width: "2em", height: "2em" }}
+                            />
+                        </a>
+                        <a title="Tiktok" href="https://tiktok.com">
+                            <img
+                                src={tiktok}
+                                alt="Tiktok"
+                                style={{ width: "2em", height: "2em" }}
+                            />
+                        </a>
+                    </div>
+                </LeftColumn>
                     {/* THROWS TYPEERROR IN THE CMS */}
-                <ImageContainer style={{marginTop: "20vh", position: "relative", right: "10vh", bottom: "-10vh"}}>
-                    <Img fixed={props?.image?.childImageSharp?.fixed} />
+                    {/* position: "relative", right: "10vh", bottom: "-10vh" style={{marginTop: "20vh", flexBasis:"20%",}}*/}
+                <ImageContainer style={{width:"150px", marginBottom: "5vh", marginTop: "5vh"}}>
+                    <Img fluid={props?.image?.childImageSharp?.fluid} />
                 </ImageContainer>
-            </TwoColumn>
-            <div className="social" style={{marginLeft: "10vh"}}>
-                <h2 style={{fontSize:"3", fontWeight:"bold", color: "white", marginBottom:"1vh"}}>Follow us </h2>
-                <a title="facebook" href="https://facebook.com">
-                    <img
-                        src={facebook}
-                        alt="Facebook"
-                        style={{ width: "2em", height: "2em" }}
-                    />
-                </a>
-                <a title="linkedin" href="https://linkedin.com">
-                    <img
-                        className="fas fa-lg"
-                        src={linkedin}
-                        alt="LinkedIn"
-                        style={{ width: "2em", height: "2em" }}
-                    />
-                </a>
-                <a
-                    title="instagram"
-                    href="https://instagram.com"
-                >
-                    <img
-                        src={instagram}
-                        alt="Instagram"
-                        style={{ width: "2em", height: "2em" }}
-                    />
-                </a>
-                <a title="Tiktok" href="https://tiktok.com">
-                    <img
-                        src={tiktok}
-                        alt="Tiktok"
-                        style={{ width: "2em", height: "2em" }}
-                    />
-                </a>
             </div>
+            
         </BlueBackground>
     )
 }
@@ -202,17 +232,17 @@ export const IndexPageTemplate = ({
         <Background style={{padding:"5vh"}}>
             <TwoColumn style={{width:"100%", justifyContent:"center"}}>
                 {/* THROWS TYPEERROR IN THE CMS */}
-                <Img style={{marginRight:"5vh"}} fixed={howTo.image?.childImageSharp?.fixed} />
 
-                {console.log("HÄÄÄ", howTo.image)}
-
+                <OnlyDesktop>
+                    <Img style={{marginRight:"5vh"}} fixed={howTo.image?.childImageSharp?.fixed} />
+                </OnlyDesktop>
                 <div style={{marginTop: "3vh"}}> 
                     {/* THESE THROWS TYPEERROR IN THE CMS WORKS IF COMMENTED*/}
                     <BigTitle>
                         {howTo.title}
                     </BigTitle>
 
-                    {howTo.steps.map((step: object, index: number) => {
+                    {howTo.steps.map((step: {title: string; detail: string}, index: number) => {
                         return(
                             <div style={{marginTop:"2vh", marginBottom:"2vh", lineHeight:"2"}} key={index}>
                                 <SmallTitle  >{step.title}</SmallTitle>
@@ -270,7 +300,7 @@ export const pageQuery = graphql`
                 title
                 image {
                     childImageSharp {
-                        fluid(maxHeight: 1500, quality: 100) {
+                        fluid(maxHeight: 800, quality: 100) {
                             ...GatsbyImageSharpFluid
                         }
                         fixed (height: 1000)  {
@@ -301,7 +331,7 @@ export const pageQuery = graphql`
                 keyFeatures {
                     image {
                         childImageSharp {
-                            fluid(maxWidth: 240, quality: 64) {
+                            fluid(maxWidth: 200, quality: 64) {
                                 ...GatsbyImageSharpFluid
                             }
                         }

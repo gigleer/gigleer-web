@@ -39,8 +39,8 @@ collections:
           - {label: Title, name: title, widget: string}
           - {label: Image, name: image, widget: image}
           - {label: Background Color, name: bgColor, widget: string}
-          - {label: How To, name: howTo, widget: object, fields: [{label: Title, name: title, widget: string, default: "Title"}, {label: Image, name: image, widget: image}, {label: Steps, name: steps, widget: list, fields: [{label: Title, name: title, widget: string, default: ["Title"]}, {label: Detail, name: detail, widget: string, default: ["Details"]}]}]}
           - {label: Key Features, name: keyFeatures, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Title, name: title, widget: string}, {label: Text, name: text, widget: text}]}
+          - {label: How To, name: howTo, widget: object, fields: [{label: Title, name: title, widget: string, default: "Title"}, {label: Image, name: image, widget: image}, {label: Steps, name: steps, widget: list, fields: [{label: Title, name: title, widget: string, default: ["Title"]}, {label: Detail, name: detail, widget: string, default: ["Details"]}]}]}
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"

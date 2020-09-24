@@ -17,9 +17,18 @@ const Description = styled.h3`
     /* max-width: 60%; */
 `
 
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    
+    @media(max-width: 880px) {
+        flex-direction: column;
+    }
+`
+
 const FeatureGrid = ({ gridItems }) => {
     return(
-    <div className="columns">
+    <Wrapper>
         {gridItems.map(item => {
         return(
             <div key={item.text} className="column is-4">
@@ -27,7 +36,7 @@ const FeatureGrid = ({ gridItems }) => {
                     <div className="has-text-centered">
                         <div
                             style={{
-                                width: "240px",
+                                width: "220px",
                                 display: "inline-block"
                             }}
                         >
@@ -39,7 +48,7 @@ const FeatureGrid = ({ gridItems }) => {
                 </section>
             </div>
         )})}
-    </div>
+    </Wrapper>
 )}
 
 FeatureGrid.propTypes = {
