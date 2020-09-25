@@ -1,8 +1,28 @@
 import { Link } from "gatsby"
 import React from "react"
-import github from "../img/github-icon.svg"
 import logo from "../img/gigleer_logo_pear.svg"
+import styled from "styled-components"
 
+
+const NavMenue = styled.div`
+    background-color: #002A5C;
+    
+    @media(max-width: 768px) {
+        border-bottom: 2px solid #00224b;
+    }
+`
+
+const NavLinks  = styled.div`
+    margin-left: 0;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    /* display: flex;
+    flex-direction: row;
+
+    @media(max-width: 1024) {
+        display: block;
+    } */
+`
 // eslint-disable-next-line react/display-name
 const Navbar = class extends React.Component {
     constructor(props) {
@@ -39,10 +59,12 @@ const Navbar = class extends React.Component {
                 className="navbar is-transparent"
                 role="navigation"
                 aria-label="main-navigation"
-                style={{position:"fixed", width:"100%", backgroundColor: "#002A5C", marginBottom: "10vh"}}
+                style={{position:"fixed", width:"100%", backgroundColor: "#002A5C", marginBottom: "10vh", borderBottom: "solid 1px rgb(255 255 255 / 16%)"}}
             >
-                <div className="container">
-                    <div className="navbar-brand">
+                {/* container */}
+                <NavLinks className="container">
+                {/* style={{width:"100%"}} */}
+                    <div className="navbar-brand" >
                         <Link to="/" className="navbar-item" title="Logo">
                             <img
                                 src={logo}
@@ -55,7 +77,7 @@ const Navbar = class extends React.Component {
                             className={`navbar-burger burger ${this.state.navBarActiveClass}`}
                             data-target="navMenu"
                             onClick={() => this.toggleHamburger()}
-                            style={{color: "#f1fdf7"}}
+                            style={{color: "#f1fdf7", backgroundColor: "#002A5C"}}
                         >
                             <span />
                             <span />
@@ -66,45 +88,19 @@ const Navbar = class extends React.Component {
                         id="navMenu"
                         className={`navbar-menu ${this.state.navBarActiveClass}`}
                         style={{backgroundColor: "#002A5C"}}
-                    >
-                        <div className="navbar-start has-text-centered" >
-                            {/* <Link className="navbar-item" style={{color:"white"}} to="/about">
-                                About
-                            </Link>
-                            <Link className="navbar-item" style={{color:"white"}} to="/products">
-                                Products
-                            </Link>
-                            <Link className="navbar-item" style={{color:"white"}} to="/blog">
-                                Blog
-                            </Link> */}
-                            <Link className="navbar-item contact-link" to="/">
+                        >
+                        <div className="navbar-start has-text-centered" 
+                            onClick={() => { this.toggleHamburger() }}
+                            >
+                            <Link className="navbar-item gigleer-link" to="/">
                                 Home
                             </Link>
-                            <Link className="navbar-item contact-link" to="/contact">
+                            <Link className="navbar-item gigleer-link" to="/contact">
                                 Contact
                             </Link>
-                            {/* <Link
-                                style={{color:"white"}}
-                                className="navbar-item"
-                                to="/contact/examples"
-                            >
-                                Form Examples
-                            </Link> */}
                         </div> 
-                        {/* <div className="navbar-end has-text-centered">
-                            <a
-                                className="navbar-item"
-                                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <span className="icon">
-                                    <img src={github} alt="Github" />
-                                </span>
-                            </a>
-                        </div> */}
                     </div>
-                </div>
+                </NavLinks>
             </nav>
         )
     }

@@ -19,6 +19,10 @@ $black: #002A5C
 //   font-family: "Glacial Indifference"
 //   src: url("../../static/fonts/glacial/GlacialIndifference-Regular.otf")   format("otf")
 
+[aria-current="page"] 
+  font-weight: bold;
+  color: #EE5A5A !important;
+
 .navbar .navbar-menu
   box-shadow:none !important
 
@@ -87,6 +91,7 @@ $black: #002A5C
   width: 1.5rem
   height: 1.5rem
   fill: currentColor
+
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
 footer.footer
@@ -133,11 +138,13 @@ $menu-label-color: $white-ter
 
 @import "~bulma"
 
-.contact-link
-  color: #f1fdf7 !important;
+.gigleer-link
+  color: #f1fdf7;
 
-.contact-link:hover
+.gigleer-link:hover
   color: #EE5A5A !important;
+  background-color: #00224b !important; 
+  // #002A5C 00224b
 
 // responsiveness
 +tablet-only

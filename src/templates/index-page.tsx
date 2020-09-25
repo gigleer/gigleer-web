@@ -159,7 +159,7 @@ const BigFocalDiv:React.FC<inputProps> = props => {
                             store="android"
                             height={100}
                             url={"www.test.se"}
-                            linkProps={{ title: 'Play Store Button' }}
+           linkProps={{ title: 'Play Store Button' }}
                         /> */}
                         {/*  */}
                     </div>
@@ -253,7 +253,7 @@ export const IndexPageTemplate = ({
 
                     <Link to="/contact" title="Sign up" style={{marginBottom:"2em"}}>
                         <RedButton className="button">
-                            Get started
+                            Sign up
                         </RedButton>
                     </Link>
                 </div> 

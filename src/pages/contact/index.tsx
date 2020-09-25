@@ -45,7 +45,8 @@ export default class Index extends React.Component {
     render() {
         return (
             <Layout>
-                <section className="section" style={{height:"70vh", paddingTop:"10vh"}}>
+                {/*  */}
+                <section className="section" style={{paddingTop:"10vh", minHeight:"70vh"}}>
                     <div className="container" style={{backgroundColor:"#EE5A5A", borderRadius:"2em", padding:"2vh 1vh 1vh 1vh"}}>
                         <h1 style={{fontSize:"1.5em", color: "#002A5C", fontWeight:"bold", margin:"0 0 1em 1em"}}>Have a question?</h1>
                         <div className="content" style={{padding:"5vh", backgroundColor:"#FBE3D8", borderRadius:"2em"}}>
