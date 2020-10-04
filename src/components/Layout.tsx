@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar"
 import React from "react"
 import useSiteMetadata from "./SiteMetadata"
 
-const TemplateWrapper = ({ children }) => {
+const TemplateWrapper: React.FC = ({ children }) => {
     const { title, description } = useSiteMetadata()
     return (
         <div>
@@ -45,7 +45,7 @@ const TemplateWrapper = ({ children }) => {
                 <meta property="og:url" content="/" />
                 <meta
                     property="og:image"
-                    content={`${withPrefix("/")}img/og-image.jpg`}
+                    content={`${withPrefix("/")}img/signup_double.png`} 
                 />
             </Helmet>
             <Navbar />
