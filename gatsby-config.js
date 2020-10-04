@@ -1,7 +1,7 @@
 module.exports = {
     siteMetadata: {
         title: "Gigleer web",
-        description: "Gigleer web"
+        description: "A complete tool. An easier way to find a job and you get paid the same day"
     },
     plugins: [
         `gatsby-plugin-typescript`,
@@ -83,7 +83,7 @@ module.exports = {
             resolve: "gatsby-plugin-web-font-loader",
             options: {
                 custom: {
-                    families: ["Glacial"],
+                    families: ["glacial"],
                     urls: ["/fonts/fonts.css"]
                 }
             }

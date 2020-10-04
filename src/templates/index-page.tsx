@@ -94,10 +94,17 @@ const TwoColumn = styled.div`
     flex-direction: row;
 `
 const ImageContainer = styled.div`
-    min-width: 500px;
+    min-width: 37vh;
     display: block;
+    width:150px; 
+    margin-bottom: 5vh; 
+    margin-top: 20vh;
+    @media(max-width: 900px) {
+        margin-top: 0vh;
+    }
     @media(max-width: 768px) {
         min-width: 250px;
+        margin-top: 0vh;
         display: none;
     }
 `
@@ -201,7 +208,7 @@ const BigFocalDiv:React.FC<inputProps> = props => {
                 </LeftColumn>
                     {/* THROWS TYPEERROR IN THE CMS */}
                     {/* position: "relative", right: "10vh", bottom: "-10vh" style={{marginTop: "20vh", flexBasis:"20%",}}*/}
-                <ImageContainer style={{width:"150px", marginBottom: "5vh", marginTop: "5vh"}}>
+                <ImageContainer>
                     <Img fluid={props?.image?.childImageSharp?.fluid} />
                 </ImageContainer>
             </div>
