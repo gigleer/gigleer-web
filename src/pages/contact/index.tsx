@@ -9,13 +9,13 @@ const BlueButton = styled.button`
     border-radius: .5em;
 `
 
-function encode(data) {
-    return Object.keys(data)
-        .map(
-            key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-        )
-        .join("&")
-}
+// function encode(data) {
+//     return Object.keys(data)
+//         .map(
+//             key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+//         )
+//         .join("&")
+// }
 
 export default class Index extends React.Component {
     constructor(props) {
@@ -23,24 +23,24 @@ export default class Index extends React.Component {
         this.state = { isValidated: false }
     }
 
-    handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        const form = e.target
-        fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({
-                "form-name": form.getAttribute("name"),
-                ...this.state
-            })
-        })
-            .then(() => navigate(form.getAttribute("action")))
-            .catch(error => alert(error))
-    }
+    // handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    //     e.preventDefault()
+    //     const form = e.target
+    //     fetch("/", {
+    //         method: "POST",
+    //         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    //         body: encode({
+    //             "form-name": form.getAttribute("name"),
+    //             ...this.state
+    //         })
+    //     })
+    //         .then(() => navigate(form.getAttribute("action")))
+    //         .catch(error => alert(error))
+    // }
 
     render() {
         return (
@@ -57,7 +57,7 @@ export default class Index extends React.Component {
                                 action="/contact/thanks/"
                                 data-netlify="true"
                                 data-netlify-honeypot="bot-field"
-                                onSubmit={this.handleSubmit}
+                                // onSubmit={this.handleSubmit}
                             >
                                 {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
                                 <input
