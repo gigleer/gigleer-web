@@ -3,16 +3,6 @@ templateKey: index-page
 title: A complete tool. An easier way to find a job and you get paid the same day
 image: /img/signup.png
 bgColor: blue
-howTo:
-  title: "Let's start with a gig! "
-  steps:
-    - title: Step 1
-      detail: Download the app
-    - title: Step 2
-      detail: Verify your details
-    - title: Step 3
-      detail: Work, have fun and get paid
-  image: /img/signup_double.png
 keyFeatures:
   - image: /img/idea_red.png
     title: Skills
@@ -23,5 +13,15 @@ keyFeatures:
     text: Rating of employers, gigs, gigleers and skills
   - image: /img/money_red.png
     title: Payment
-    text: "Direct payment after a gig. Later loans, savings and payments. "
+    text: Direct payment after a gig
+howTo:
+  title: "Let's start with a gig! "
+  steps:
+    - title: Step 1
+      detail: Download the app
+    - title: Step 2
+      detail: Verify your details
+    - title: Step 3
+      detail: Work, have fun and get paid
+  image: /img/signup_double.png
 ---
