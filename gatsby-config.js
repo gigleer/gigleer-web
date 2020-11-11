@@ -4,10 +4,10 @@ module.exports = {
         description: "A complete tool. An easier way to find a job and you get paid the same day"
     },
     plugins: [
+        "gatsby-plugin-sass",
         `gatsby-plugin-typescript`,
         `gatsby-plugin-styled-components`,
         "gatsby-plugin-react-helmet",
-        "gatsby-plugin-sass",
         {
             resolve: "gatsby-plugin-graphql-codegen",
             options: {
