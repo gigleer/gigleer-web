@@ -13,7 +13,7 @@ keyFeatures:
     text: Rating of employers, gigs, gigleers and skills
   - image: /img/money_red.png
     title: Payment
-    text: Direct payment after a gig
+    text: Get paid after after your gig
 howTo:
   title: "Let's start with a gig! "
   steps:
