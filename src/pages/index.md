@@ -1,6 +1,6 @@
 ---
 templateKey: index-page
-title: A complete tool. An easier way to find a job and you get paid the same day
+title: " A complete tool. An easier way to find a job and  get paid"
 image: /img/signup.png
 bgColor: blue
 keyFeatures:
