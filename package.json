@@ -54,6 +54,7 @@
     "scripts": {
         "clean": "gatsby clean",
         "start": "npm run develop",
+        "start:proxy": "npx netlify-cms-proxy-server",
         "build": "npm run clean && gatsby build",
         "develop": "npm run clean && gatsby develop",
         "typecheck": "tsc --project tsconfig.json #",

@@ -740,6 +740,9 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___howTo___steps'
   | 'childMarkdownRemark___frontmatter___date'
   | 'childMarkdownRemark___frontmatter___featuredpost'
+  | 'childMarkdownRemark___frontmatter___description'
+  | 'childMarkdownRemark___frontmatter___tags'
+  | 'childMarkdownRemark___frontmatter___path'
   | 'childMarkdownRemark___frontmatter___featuredimage___sourceInstanceName'
   | 'childMarkdownRemark___frontmatter___featuredimage___absolutePath'
   | 'childMarkdownRemark___frontmatter___featuredimage___relativePath'
@@ -776,9 +779,6 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___frontmatter___featuredimage___publicURL'
   | 'childMarkdownRemark___frontmatter___featuredimage___id'
   | 'childMarkdownRemark___frontmatter___featuredimage___children'
-  | 'childMarkdownRemark___frontmatter___description'
-  | 'childMarkdownRemark___frontmatter___tags'
-  | 'childMarkdownRemark___frontmatter___path'
   | 'childMarkdownRemark___frontmatter___heading'
   | 'childMarkdownRemark___frontmatter___intro___blurbs'
   | 'childMarkdownRemark___frontmatter___intro___heading'
@@ -1794,6 +1794,9 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___howTo___image___children'
   | 'frontmatter___date'
   | 'frontmatter___featuredpost'
+  | 'frontmatter___description'
+  | 'frontmatter___tags'
+  | 'frontmatter___path'
   | 'frontmatter___featuredimage___sourceInstanceName'
   | 'frontmatter___featuredimage___absolutePath'
   | 'frontmatter___featuredimage___relativePath'
@@ -1855,9 +1858,6 @@ export type MarkdownRemarkFieldsEnum =
   | 'frontmatter___featuredimage___childMarkdownRemark___timeToRead'
   | 'frontmatter___featuredimage___childMarkdownRemark___tableOfContents'
   | 'frontmatter___featuredimage___childMarkdownRemark___children'
-  | 'frontmatter___description'
-  | 'frontmatter___tags'
-  | 'frontmatter___path'
   | 'frontmatter___heading'
   | 'frontmatter___intro___blurbs'
   | 'frontmatter___intro___blurbs___text'
@@ -2073,10 +2073,10 @@ export type MarkdownRemarkFrontmatter = {
   howTo?: Maybe<MarkdownRemarkFrontmatterHowTo>;
   date?: Maybe<Scalars['Date']>;
   featuredpost?: Maybe<Scalars['Boolean']>;
-  featuredimage?: Maybe<File>;
   description?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
   path?: Maybe<Scalars['String']>;
+  featuredimage?: Maybe<File>;
   heading?: Maybe<Scalars['String']>;
   intro?: Maybe<MarkdownRemarkFrontmatterIntro>;
   main?: Maybe<MarkdownRemarkFrontmatterMain>;
@@ -2102,10 +2102,10 @@ export type MarkdownRemarkFrontmatterFilterInput = {
   howTo?: Maybe<MarkdownRemarkFrontmatterHowToFilterInput>;
   date?: Maybe<DateQueryOperatorInput>;
   featuredpost?: Maybe<BooleanQueryOperatorInput>;
-  featuredimage?: Maybe<FileFilterInput>;
   description?: Maybe<StringQueryOperatorInput>;
   tags?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
+  featuredimage?: Maybe<FileFilterInput>;
   heading?: Maybe<StringQueryOperatorInput>;
   intro?: Maybe<MarkdownRemarkFrontmatterIntroFilterInput>;
   main?: Maybe<MarkdownRemarkFrontmatterMainFilterInput>;
@@ -2471,6 +2471,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2609,6 +2611,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -2810,6 +2814,8 @@ export type SiteFieldsEnum =
   | 'buildTime'
   | 'siteMetadata___title'
   | 'siteMetadata___description'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -2902,6 +2908,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
