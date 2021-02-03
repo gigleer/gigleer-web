@@ -5,11 +5,18 @@ import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
 import React from "react"
 import useSiteMetadata from "./SiteMetadata"
+import styled from "styled-components"
+
+const PageContainer = styled.div`
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+`
 
 const TemplateWrapper: React.FC = ({ children }) => {
     const { title, description } = useSiteMetadata()
     return (
-        <div>
+        <PageContainer>
             <Helmet>
                 <html lang="en" />
                 <title>{title}</title>
@@ -58,9 +65,9 @@ const TemplateWrapper: React.FC = ({ children }) => {
                 />
             </Helmet>
             <Navbar />
-            <div>{children}</div>
+            <div style={{flex: '1 0 auto'}}>{children}</div>
             <Footer />
-        </div>
+        </PageContainer>
     )
 }
 

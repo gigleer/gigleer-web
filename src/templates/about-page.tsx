@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Content, { HTMLContent } from "../components/Content"
 import Layout from "../components/Layout"
 import React from "react"
+import styled from "styled-components"
 
 interface AboutPageTemplateProps {
     title?: string | null
