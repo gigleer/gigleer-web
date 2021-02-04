@@ -32,7 +32,7 @@ oskar@gigleer.com
 
 ### Company Information
 
-Our company, Microgig AB who is building Gigleer, are now in the process of changing the company name to Gigleer AB. 
+Our company, Microgig AB which builds Gigleer, is now in the process of changing the company name to Gigleer AB. 
 
 **Microgig AB** (soon Gigleer AB)\
 Org.number - 559258-6282\
