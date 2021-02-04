@@ -7,9 +7,9 @@ title: About our values
 
 ##### Our mission
 
-In an uncertain world that we live in today due to covid-19 and where 25% of Gen-Z are unemployed we want to make a difference. We want to give Gen-Z a real chang for them to get into the job sector, get indepence, live their own life and reach their own goals and dreams. That is why we built Gigleer.
+In an uncertain world that we live in today due to covid-19 and where 25% of Gen-Z are unemployed we want to make a difference. We want to give Gen-Z a real chance for them to get into the job sector, get indepence, live their own life and reach their own goals and dreams. That is why we built Gigleer.
 
-With Gigleer we connect employees and Gigleers with "on the go work" and learning platform. 
+With Gigleer we connect employees and Gigleers with "on the go work" and a learning platform. 
 
 
 
