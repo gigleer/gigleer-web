@@ -5,13 +5,13 @@ title: About
 ---
 ### Gigleer
 
-##### Our mission
+### Our mission
 
 In an uncertain world that we live in today due to covid-19 and where 25% of Gen-Z are unemployed we want to make a difference. We want to give Gen-Z a real chance for them to get into the job sector, get indepence, live their own life and reach their own goals and dreams. That is why we built Gigleer.
 
 With Gigleer we connect employees and Gigleers with "on the go work" and a learning platform. 
 
-##### Who we are
+### Who we are
 
 **CEO** **\- Fredrik Åkerfeldt** \
 +46 (0) 72 300 33 45; fredrik@gigleer
@@ -28,7 +28,9 @@ oskar@gigleer.com
 **Investor Relations - Niklas Dahlgren** \
 +46 (0)  70 920 05 00; niklas@gigleer.com
 
-##### Company Information
+
+
+### Company Information
 
 Our company, Microgig AB who is building Gigleer, are now in the process of changing the company name to Gigleer AB. 
 
