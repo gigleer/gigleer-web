@@ -2,12 +2,10 @@ import { TermsAndConditionTemplate } from "../../templates/terms-and-condition-p
 import PropTypes from "prop-types"
 import React from "react"
 
-const TermsAndConditionPreview = ({ entry, widgetFor }) => (
-    <TermsAndConditionTemplate
-        title={entry.getIn(["data", "title"])}
-        content={widgetFor("body")}
-    />
-)
+const TermsAndConditionPreview = ({ entry }) => {
+    const data = entry.getIn(["data"]).toJS()
+    return <TermsAndConditionTemplate content={data.terms}/>
+}
 
 TermsAndConditionPreview.propTypes = {
     entry: PropTypes.shape({

@@ -51,10 +51,19 @@ collections:
       - file: "src/pages/terms-and-condition/index.md"
         label: "Terms and condition"
         name: "terms-and-condition"
+        widget: "list"
+        summary: '{{fields.title}}'
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "terms-and-condition-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
+          - name: terms
+            folder: "src/pages/terms-and-condition"
+            create: true
+            slug: "{{fields.title}}"
+            summary: '{{fields.title}}'
+            widget: list
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Body", name: "body", widget: "markdown"}
       # - file: "src/pages/products/index.md"
       #   label: "Products Page"
       #   name: "products"
