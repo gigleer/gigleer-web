@@ -36,6 +36,14 @@ module.exports = {
                 name: "images"
             }
         },
+        {
+            resolve: "gatsby-plugin-google-tagmanager",
+            options: {
+              id: "GTM-5ZZX7LC",
+              includeInDevelopment: true,
+              defaultDataLayer: { platform: "gatsby" },
+            },
+          },
         "gatsby-plugin-sharp",
         "gatsby-transformer-sharp",
         {
